@@ -39,14 +39,14 @@
             overflow: hidden;
         }
 
-        header {
+        .header {
             background-color: #f0ebe5;
             padding: 20px;
             border-bottom: 2px solid var(--cor-destaque);
             text-align: center;
         }
 
-        header h1 {
+        .header h1 {
             font-family: var(--fonte-titulo);
             color: var(--cor-titulo);
             margin: 0;
@@ -54,7 +54,7 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
-        main {
+        .main-content {
             padding: 25px;
         }
 
@@ -245,44 +245,44 @@
 <body>
 
     <div class="container">
-        <header>
+        <div class="header">
             <h1>{TÍTULO DA CENA}</h1>
-        </header>
+        </div>
 
-        <main>
+        <div class="main-content">
             <!-- CABEÇALHO DA CENA -->
-            <section class="bloco detalhes-cabecalho">
+            <div class="bloco detalhes-cabecalho">
                 <h2>📜 Detalhes da Cena</h2>
                 <ul>
                     <li><strong>Objetivo Dramático:</strong> {Descrever o propósito principal da cena. Ex: "Escapar da guilda dos ladrões com o artefato roubado."}</li>
                     <li><strong>Gatilho de Início:</strong> {O que faz a cena começar? Ex: "Quando os jogadores entram na taverna 'O Javali Caolho'."}</li>
                     <li><strong>Condição de Término:</strong> {O que conclui a cena? Ex: "Os jogadores derrotam o líder da guilda ou fogem da cidade."}</li>
                 </ul>
-            </section>
+            </div>
             
             <!-- CHECKLIST DE INFORMAÇÕES -->
-            <section class="bloco">
+            <div class="bloco">
                 <h2>✔️ Checklist de Informações Essenciais</h2>
                 <ul class="checklist">
                     <li>{Informação crucial 1 que os jogadores precisam descobrir}</li>
                     <li>{Pista importante 2 que leva à próxima cena}</li>
                     <li>{Segredo 3 sobre um NPC ou sobre o local}</li>
                 </ul>
-            </section>
+            </div>
 
             <!-- BLOCO INICIAL -->
-            <article class="bloco bloco-leia-agora">
+            <div class="bloco bloco-leia-agora">
                 <div class="marcador">📖 LEIA AGORA</div>
                 <p>
                     {Descrição sensorial inicial. Duas ou três frases que descrevem o que os personagens veem, ouvem e sentem assim que a cena começa. Ex: "O ar pesado da taverna cheira a cerveja derramada e fumaça de cachimbo. Risadas altas ecoam das mesas de jogo no canto, enquanto uma figura encapuzada observa vocês da penumbra do balcão."}
                 </p>
-            </article>
+            </div>
 
             <div class="marcador marcador-pausa">⏱️ PAUSA PARA REAÇÃO</div>
             <p style="text-align: center; font-style: italic;">"O que vocês fazem?"</p>
             
             <!-- DESENVOLVIMENTO DA CENA -->
-            <article class="bloco">
+            <div class="bloco">
                 <div class="marcador marcador-teste">🎲 CHAME TESTE: Percepção (CD 15)</div>
                  <p><strong>Motivo:</strong> Para notar a figura encapuzada fazendo um sinal discreto para os guardas.</p>
                  <ul>
@@ -292,9 +292,9 @@
                 <div class="acao-roll20">
                     <strong>Ação Roll20:</strong> <code>Teste de Percepção (CD 15) = /gmroll 1d20+@{selected|percepcao} vs CD 15</code>
                 </div>
-            </article>
+            </div>
             
-            <article class="bloco bloco-nota-mestre">
+            <div class="bloco bloco-nota-mestre">
                 <div class="marcador">🤫 NOTA DO MESTRE</div>
                 <p><strong>Segredo:</strong> A figura encapuzada é [Lira], uma espiã rival que busca o mesmo artefato. Ela não quer confronto direto, mas alertará os guardas para atrasar os jogadores.</p>
                 <p><strong>Tática:</strong> Os guardas (Guerreiros, {referência livro pág. X}) tentarão cercar o grupo, focando no personagem que parecer mais fraco. Lira usará a confusão para fugir pela porta dos fundos.</p>
@@ -306,9 +306,9 @@
                        <li><code>Dano do Guarda = /r 1d6+3</code></li>
                     </ul>
                 </div>
-            </article>
+            </div>
 
-            <article class="bloco bloco-falas-npc">
+            <div class="bloco bloco-falas-npc">
                  <div class="marcador marcador-npc">💬 FALAS DO BARMAN (Galdor)</div>
                  <p class="tom-npc">Tom: Nervoso, mas tentando parecer neutro. Evita contato visual.</p>
                  <ul>
@@ -325,9 +325,9 @@
                  <div class="acao-roll20">
                     <strong>Ação Social (CD 18):</strong> <code>Persuadir Galdor = /gmroll 1d20+@{selected|diplomacia} vs CD 18</code>
                  </div>
-            </article>
+            </div>
             
-            <article class="bloco">
+            <div class="bloco">
                 <div class="marcador marcador-mostre">🖼️ MOSTRE AGORA: [Handout 1 - Símbolo da Guilda]</div>
                 <p>
                     <strong>Gatilho:</strong> Se um jogador investigar a figura encapuzada ([Lira]) e passar em um teste de Percepção (CD 18) ou se revistar um dos guardas derrotados.
@@ -335,10 +335,10 @@
                 <p>
                     <strong>Objetivo:</strong> Revelar que eles não estão lidando com a guarda da cidade, mas com a Guilda das Sombras, identificada pelo símbolo de uma adaga atravessando uma rosa negra.
                 </p>
-            </article>
+            </div>
 
             <!-- RAMIFICAÇÕES -->
-            <section class="bloco ramificacoes">
+            <div class="bloco ramificacoes">
                  <h2>🧭 Ramificações</h2>
                  <ul>
                     <li>
@@ -351,8 +351,8 @@
                         <strong>Se os jogadores tentarem fugir:</strong> Eles iniciam uma cena de perseguição pelas ruas da cidade, com os guardas da Guilda em seu encalço. Veja o handout [Perseguição nos Telhados].
                     </li>
                  </ul>
-            </section>
-        </main>
+            </div>
+        </div>
     </div>
 
 </body>
