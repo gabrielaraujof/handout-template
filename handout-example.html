@@ -153,12 +153,50 @@
             color: var(--cor-texto);
         }
         
-        code {
-            background-color: #eee;
-            padding: 2px 5px;
-            border-radius: 3px;
-            font-family: monospace;
+        /* ESTILOS PARA BOTÕES DE AÇÃO (CTA) */
+        .acao-roll20 {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--cor-borda);
         }
+        
+        .acao-roll20 strong {
+            font-family: var(--fonte-titulo);
+            font-size: 0.9em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .acao-roll20 code {
+            background-color: var(--cor-titulo);
+            color: var(--cor-fundo);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-family: var(--fonte-corpo);
+            font-weight: bold;
+            display: inline-block;
+            border-bottom: 2px solid #6c3510;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 5px;
+            margin-right: 5px;
+        }
+
+        .acao-roll20 code:hover {
+            background-color: #a0522d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .acao-roll20 ul {
+            margin: 0;
+        }
+
+        .acao-roll20 li {
+            margin-bottom: 5px;
+        }
+
 
         /* ESTILOS PARA FALAS DE NPC */
         .bloco-falas-npc .tom-npc {
@@ -251,6 +289,9 @@
                     <li><strong>Sucesso:</strong> Você percebe o gesto sutil, um rápido movimento de mão, e entende que a aparente calma do lugar é uma fachada. Vocês ganham uma rodada de surpresa se o combate começar.</li>
                     <li><strong>Falha:</strong> O barulho e a movimentação do local desviam sua atenção. Tudo parece normal até que seja tarde demais.</li>
                 </ul>
+                <div class="acao-roll20">
+                    <strong>Ação Roll20:</strong> <code>Teste de Percepção (CD 15) = /gmroll 1d20+@{selected|percepcao} vs CD 15</code>
+                </div>
             </article>
             
             <article class="bloco bloco-nota-mestre">
@@ -258,17 +299,14 @@
                 <p><strong>Segredo:</strong> A figura encapuzada é [Lira], uma espiã rival que busca o mesmo artefato. Ela não quer confronto direto, mas alertará os guardas para atrasar os jogadores.</p>
                 <p><strong>Tática:</strong> Os guardas (Guerreiros, {referência livro pág. X}) tentarão cercar o grupo, focando no personagem que parecer mais fraco. Lira usará a confusão para fugir pela porta dos fundos.</p>
                  <p><strong>Cronômetro (3 etapas):</strong> Reforços da guarda chegam. <br>1. Ouve-se um apito ao fundo. <br>2. Ouvem-se passos pesados do lado de fora. <br>3. A porta é arrombada e 2d4 guardas adicionais se juntam à luta.</p>
+                 <div class="acao-roll20">
+                    <strong>Ações de Combate (Guarda):</strong>
+                    <ul>
+                       <li><code>Ataque do Guarda = /r 1d20+5</code></li>
+                       <li><code>Dano do Guarda = /r 1d6+3</code></li>
+                    </ul>
+                </div>
             </article>
-            
-            <section class="bloco">
-                <h2>⚙️ Botões de Ação (Roll20)</h2>
-                <p><em>Exemplos de macros para usar no chat. Formato: "texto do botão = `comando"</em></p>
-                <ul>
-                   <li>Ataque do Guarda = `/r 1d20+5 Ataque de Espada Curta`</li>
-                   <li>Dano do Guarda = `/r 1d6+3 Dano Perfurante`</li>
-                   <li>Teste de Percepção (CD 15) = `/gmroll 1d20+@{selected|percepcao} vs CD 15`</li>
-                </ul>
-            </section>
 
             <article class="bloco bloco-falas-npc">
                  <div class="marcador marcador-npc">💬 FALAS DO BARMAN (Galdor)</div>
@@ -284,6 +322,9 @@
                         "Olha... tudo que eu sei é que ela chegou há pouco e parecia esperar por alguém. Por favor, não me metam em problemas."
                      </li>
                  </ul>
+                 <div class="acao-roll20">
+                    <strong>Ação Social (CD 18):</strong> <code>Persuadir Galdor = /gmroll 1d20+@{selected|diplomacia} vs CD 18</code>
+                 </div>
             </article>
             
             <article class="bloco">
