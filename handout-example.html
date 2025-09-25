@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handout de Cena - Tormenta 20</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cor-fundo: #f8f5f0; /* Bege claro, tipo pergaminho */
+            --cor-caixa: #ffffff; /* Branco para o conteúdo principal */
+            --cor-texto: #333333; /* Cinza escuro para o texto */
+            --cor-titulo: #8B4513; /* Marrom (SaddleBrown) para títulos */
+            --cor-destaque: #B22222; /* Vermelho (Firebrick) para destaque */
+            --cor-borda: #dddddd; /* Cinza claro para bordas */
+            --cor-npc: #008000; /* Verde para elementos de NPC */
+            --fonte-titulo: 'Cinzel', serif;
+            --fonte-corpo: 'Lora', serif;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            font-family: var(--fonte-corpo);
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            border: 1px solid var(--cor-borda);
+            background-color: var(--cor-caixa);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #f0ebe5;
+            padding: 20px;
+            border-bottom: 2px solid var(--cor-destaque);
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: var(--fonte-titulo);
+            color: var(--cor-titulo);
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        main {
+            padding: 25px;
+        }
+
+        .bloco {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(0,0,0,0.02);
+            border-left: 4px solid var(--cor-borda);
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .bloco h2 {
+            font-family: var(--fonte-titulo);
+            color: var(--cor-titulo);
+            margin-top: 0;
+            border-bottom: 1px solid var(--cor-borda);
+            padding-bottom: 10px;
+        }
+
+        .bloco-leia-agora {
+            background-color: rgba(178, 34, 34, 0.05);
+            border-left-color: var(--cor-destaque);
+            font-style: italic;
+            font-size: 1.1em;
+        }
+
+        .bloco-nota-mestre {
+            background-color: rgba(139, 69, 19, 0.05);
+            border-left-color: var(--cor-titulo);
+        }
+
+        .marcador {
+            font-weight: 700;
+            font-family: var(--fonte-titulo);
+            color: var(--cor-texto);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0 10px;
+            font-size: 1.1em;
+        }
+
+        .marcador-pausa { color: #5a9bd5; }
+        .marcador-teste { color: #c55a11; }
+        .marcador-mostre { color: #7030a0; }
+        .marcador-npc { color: var(--cor-npc); }
+
+        p, li {
+            margin-bottom: 10px;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul.checklist li {
+            padding-left: 20px;
+            position: relative;
+        }
+
+        ul.checklist li::before {
+            content: "□";
+            position: absolute;
+            left: 0;
+            font-family: monospace;
+        }
+
+        .detalhes-cabecalho ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+        }
+        
+        .detalhes-cabecalho li {
+            background: #fafafa;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #f0f0f0;
+        }
+
+        .detalhes-cabecalho strong {
+            color: var(--cor-titulo);
+            font-family: var(--fonte-titulo);
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .ramificacoes ul li {
+            border-left: 2px solid var(--cor-destaque);
+            padding-left: 15px;
+            margin-top: 10px;
+        }
+
+        .ramificacoes strong {
+            color: var(--cor-texto);
+        }
+        
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        /* ESTILOS PARA FALAS DE NPC */
+        .bloco-falas-npc .tom-npc {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--cor-borda);
+        }
+
+        .bloco-falas-npc ul li {
+            background-color: #f0ebe5;
+            border-left: 4px solid var(--cor-npc);
+            padding: 15px 15px 15px 25px;
+            border-radius: 0 4px 4px 0;
+            margin-top: 10px;
+            font-style: italic;
+            font-size: 1.1em;
+            line-height: 1.6;
+            position: relative;
+        }
+        
+        .bloco-falas-npc ul li::before {
+            content: '“';
+            position: absolute;
+            left: -10px;
+            top: 5px;
+            font-family: 'Cinzel', serif;
+            font-style: normal;
+            font-size: 3em;
+            color: var(--cor-npc);
+            line-height: 1;
+            opacity: 0.5;
+        }
+
+        .bloco-falas-npc .contexto-fala {
+            font-style: normal;
+            font-size: 0.9em;
+            color: #777;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>{TÍTULO DA CENA}</h1>
+        </header>
+
+        <main>
+            <!-- CABEÇALHO DA CENA -->
+            <section class="bloco detalhes-cabecalho">
+                <h2>📜 Detalhes da Cena</h2>
+                <ul>
+                    <li><strong>Objetivo Dramático:</strong> {Descrever o propósito principal da cena. Ex: "Escapar da guilda dos ladrões com o artefato roubado."}</li>
+                    <li><strong>Gatilho de Início:</strong> {O que faz a cena começar? Ex: "Quando os jogadores entram na taverna 'O Javali Caolho'."}</li>
+                    <li><strong>Condição de Término:</strong> {O que conclui a cena? Ex: "Os jogadores derrotam o líder da guilda ou fogem da cidade."}</li>
+                </ul>
+            </section>
+            
+            <!-- CHECKLIST DE INFORMAÇÕES -->
+            <section class="bloco">
+                <h2>✔️ Checklist de Informações Essenciais</h2>
+                <ul class="checklist">
+                    <li>{Informação crucial 1 que os jogadores precisam descobrir}</li>
+                    <li>{Pista importante 2 que leva à próxima cena}</li>
+                    <li>{Segredo 3 sobre um NPC ou sobre o local}</li>
+                </ul>
+            </section>
+
+            <!-- BLOCO INICIAL -->
+            <article class="bloco bloco-leia-agora">
+                <div class="marcador">📖 LEIA AGORA</div>
+                <p>
+                    {Descrição sensorial inicial. Duas ou três frases que descrevem o que os personagens veem, ouvem e sentem assim que a cena começa. Ex: "O ar pesado da taverna cheira a cerveja derramada e fumaça de cachimbo. Risadas altas ecoam das mesas de jogo no canto, enquanto uma figura encapuzada observa vocês da penumbra do balcão."}
+                </p>
+            </article>
+
+            <div class="marcador marcador-pausa">⏱️ PAUSA PARA REAÇÃO</div>
+            <p style="text-align: center; font-style: italic;">"O que vocês fazem?"</p>
+            
+            <!-- DESENVOLVIMENTO DA CENA -->
+            <article class="bloco">
+                <div class="marcador marcador-teste">🎲 CHAME TESTE: Percepção (CD 15)</div>
+                 <p><strong>Motivo:</strong> Para notar a figura encapuzada fazendo um sinal discreto para os guardas.</p>
+                 <ul>
+                    <li><strong>Sucesso:</strong> Você percebe o gesto sutil, um rápido movimento de mão, e entende que a aparente calma do lugar é uma fachada. Vocês ganham uma rodada de surpresa se o combate começar.</li>
+                    <li><strong>Falha:</strong> O barulho e a movimentação do local desviam sua atenção. Tudo parece normal até que seja tarde demais.</li>
+                </ul>
+            </article>
+            
+            <article class="bloco bloco-nota-mestre">
+                <div class="marcador">🤫 NOTA DO MESTRE</div>
+                <p><strong>Segredo:</strong> A figura encapuzada é [Lira], uma espiã rival que busca o mesmo artefato. Ela não quer confronto direto, mas alertará os guardas para atrasar os jogadores.</p>
+                <p><strong>Tática:</strong> Os guardas (Guerreiros, {referência livro pág. X}) tentarão cercar o grupo, focando no personagem que parecer mais fraco. Lira usará a confusão para fugir pela porta dos fundos.</p>
+                 <p><strong>Cronômetro (3 etapas):</strong> Reforços da guarda chegam. <br>1. Ouve-se um apito ao fundo. <br>2. Ouvem-se passos pesados do lado de fora. <br>3. A porta é arrombada e 2d4 guardas adicionais se juntam à luta.</p>
+            </article>
+            
+            <section class="bloco">
+                <h2>⚙️ Botões de Ação (Roll20)</h2>
+                <p><em>Exemplos de macros para usar no chat. Formato: "texto do botão = `comando"</em></p>
+                <ul>
+                   <li>Ataque do Guarda = `/r 1d20+5 Ataque de Espada Curta`</li>
+                   <li>Dano do Guarda = `/r 1d6+3 Dano Perfurante`</li>
+                   <li>Teste de Percepção (CD 15) = `/gmroll 1d20+@{selected|percepcao} vs CD 15`</li>
+                </ul>
+            </section>
+
+            <article class="bloco bloco-falas-npc">
+                 <div class="marcador marcador-npc">💬 FALAS DO BARMAN (Galdor)</div>
+                 <p class="tom-npc">Tom: Nervoso, mas tentando parecer neutro. Evita contato visual.</p>
+                 <ul>
+                     <li>"Bem-vindos ao Javali, nobres aventureiros. O que o destino e a sede trazem a este humilde buraco?"</li>
+                     <li>
+                        <span class="contexto-fala">(Se pressionado sobre a figura encapuzada)</span>
+                        "Ah... só mais um viajante cansado. Não costumo me meter nos assuntos dos meus clientes, se é que me entendem."
+                     </li>
+                     <li>
+                        <span class="contexto-fala">(Se os jogadores oferecerem moedas)</span>
+                        "Olha... tudo que eu sei é que ela chegou há pouco e parecia esperar por alguém. Por favor, não me metam em problemas."
+                     </li>
+                 </ul>
+            </article>
+            
+            <article class="bloco">
+                <div class="marcador marcador-mostre">🖼️ MOSTRE AGORA: [Handout 1 - Símbolo da Guilda]</div>
+                <p>
+                    <strong>Gatilho:</strong> Se um jogador investigar a figura encapuzada ([Lira]) e passar em um teste de Percepção (CD 18) ou se revistar um dos guardas derrotados.
+                </p>
+                <p>
+                    <strong>Objetivo:</strong> Revelar que eles não estão lidando com a guarda da cidade, mas com a Guilda das Sombras, identificada pelo símbolo de uma adaga atravessando uma rosa negra.
+                </p>
+            </article>
+
+            <!-- RAMIFICAÇÕES -->
+            <section class="bloco ramificacoes">
+                 <h2>🧭 Ramificações</h2>
+                 <ul>
+                    <li>
+                        <strong>Se os jogadores atacarem imediatamente:</strong> A taverna inteira se torna hostil. O combate é mais difícil, mas eles podem pegar [Lira] de surpresa.
+                    </li>
+                    <li>
+                        <strong>Se os jogadores tentarem dialogar com [Lira]:</strong> Ela os acusa de serem ladrões para iniciar o caos e fugir. Eles podem tentar um teste de Diplomacia (CD 20) para acalmar a situação e expô-la.
+                    </li>
+                     <li>
+                        <strong>Se os jogadores tentarem fugir:</strong> Eles iniciam uma cena de perseguição pelas ruas da cidade, com os guardas da Guilda em seu encalço. Veja o handout [Perseguição nos Telhados].
+                    </li>
+                 </ul>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
+
