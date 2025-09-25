@@ -167,35 +167,39 @@
             margin-bottom: 10px;
         }
 
-        .acao-roll20 code {
-            background-color: var(--cor-titulo);
+        .btn-acao {
             color: var(--cor-fundo);
             padding: 8px 15px;
             border-radius: 5px;
             font-family: var(--fonte-corpo);
             font-weight: bold;
             display: inline-block;
-            border-bottom: 2px solid #6c3510;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s;
             margin-top: 5px;
             margin-right: 5px;
+            border: none;
+            text-align: left;
         }
 
-        .acao-roll20 code:hover {
-            background-color: #a0522d;
+        .btn-acao:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
 
-        .acao-roll20 ul {
-            margin: 0;
-        }
+        /* Cores dos Botões */
+        .btn-combate { background-color: #B22222; border-bottom: 2px solid #800000; } /* Vermelho Firebrick */
+        .btn-combate:hover { background-color: #CD5C5C; }
 
-        .acao-roll20 li {
-            margin-bottom: 5px;
-        }
+        .btn-rolagem { background-color: #4682B4; border-bottom: 2px solid #315a7d; } /* Azul SteelBlue */
+        .btn-rolagem:hover { background-color: #5a9bd5; }
+
+        .btn-social { background-color: #228B22; border-bottom: 2px solid #175e17; } /* Verde ForestGreen */
+        .btn-social:hover { background-color: #32CD32; }
+        
+        .btn-descricao { background-color: #483D8B; border-bottom: 2px solid #332a61; } /* Azul DarkSlateBlue */
+        .btn-descricao:hover { background-color: #6A5ACD; }
 
 
         /* ESTILOS PARA FALAS DE NPC */
@@ -290,7 +294,8 @@
                     <li><strong>Falha:</strong> O barulho e a movimentação do local desviam sua atenção. Tudo parece normal até que seja tarde demais.</li>
                 </ul>
                 <div class="acao-roll20">
-                    <strong>Ação Roll20:</strong> <code>Teste de Percepção (CD 15) = /gmroll 1d20+@{selected|percepcao} vs CD 15</code>
+                    <strong>Ação Roll20:</strong>
+                    <code class="btn-acao btn-rolagem">Teste de Percepção (CD 15) = /gmroll 1d20+@{selected|percepcao} vs CD 15</code>
                 </div>
             </div>
             
@@ -301,10 +306,10 @@
                  <p><strong>Cronômetro (3 etapas):</strong> Reforços da guarda chegam. <br>1. Ouve-se um apito ao fundo. <br>2. Ouvem-se passos pesados do lado de fora. <br>3. A porta é arrombada e 2d4 guardas adicionais se juntam à luta.</p>
                  <div class="acao-roll20">
                     <strong>Ações de Combate (Guarda):</strong>
-                    <ul>
-                       <li><code>Ataque do Guarda = /r 1d20+5</code></li>
-                       <li><code>Dano do Guarda = /r 1d6+3</code></li>
-                    </ul>
+                    <div>
+                       <code class="btn-acao btn-combate">Ataque do Guarda = /r 1d20+5</code>
+                       <code class="btn-acao btn-combate">Dano do Guarda = /r 1d6+3</code>
+                    </div>
                 </div>
             </div>
 
@@ -323,7 +328,8 @@
                      </li>
                  </ul>
                  <div class="acao-roll20">
-                    <strong>Ação Social (CD 18):</strong> <code>Persuadir Galdor = /gmroll 1d20+@{selected|diplomacia} vs CD 18</code>
+                    <strong>Ação Social (CD 18):</strong>
+                    <code class="btn-acao btn-social">Persuadir Galdor = /gmroll 1d20+@{selected|diplomacia} vs CD 18</code>
                  </div>
             </div>
             
@@ -335,6 +341,10 @@
                 <p>
                     <strong>Objetivo:</strong> Revelar que eles não estão lidando com a guarda da cidade, mas com a Guilda das Sombras, identificada pelo símbolo de uma adaga atravessando uma rosa negra.
                 </p>
+                <div class="acao-roll20">
+                    <strong>Ação de Descrição:</strong>
+                    <code class="btn-acao btn-descricao">Sussurrar Descrição = /w @{selected|character_name} Você reconhece o símbolo no broche: uma adaga atravessando uma rosa negra. É a marca inconfundível da Guilda das Sombras.</code>
+                </div>
             </div>
 
             <!-- RAMIFICAÇÕES -->
@@ -357,4 +367,3 @@
 
 </body>
 </html>
-
